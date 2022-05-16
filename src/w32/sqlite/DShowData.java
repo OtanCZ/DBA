@@ -1,6 +1,8 @@
 package w32.sqlite;
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
+import w32.Covid;
 import w32.Warehouse;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -20,12 +22,20 @@ public class DShowData extends Application {
     @Override
     public void start(Stage stage) {
         // Create a TableView with a list of persons
-        TableView<Warehouse> table = new TableView<>(EWarehouseTableUtil.getWarehouseList());
+        TableView<Covid> table = new TableView<>(EWarehouseTableUtil.getWarehouseList());
 
         // Add columns to the TableView
-        table.getColumns().addAll(EWarehouseTableUtil.getIdColumn(),
-                EWarehouseTableUtil.getNameColumn(),
-                EWarehouseTableUtil.getCapacityColumn());
+        table.getColumns().addAll(
+                EWarehouseTableUtil.getIdColumn(),
+                EWarehouseTableUtil.getDatumColumn(),
+                EWarehouseTableUtil.getVekColumn(),
+                EWarehouseTableUtil.getPohlaviColumn(),
+                EWarehouseTableUtil.getkraj_nuts_kodColumn(),
+                EWarehouseTableUtil.getokres_lau_kodColumn(),
+                EWarehouseTableUtil.getnakaza_v_zahraniciColumn(),
+                EWarehouseTableUtil.getnakaza_zeme_csu_kodColumn(),
+                EWarehouseTableUtil.getreportovano_khsColumn()
+        );
         VBox root = new VBox(table);
         root.setStyle("-fx-padding: 10;" +
                 "-fx-border-style: solid inside;" +
